@@ -1,3 +1,9 @@
+*, *::after, *::before{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 html{
     background-color: lightblue;
     text-align: center;
@@ -17,8 +23,9 @@ html{
 
 td{
     min-width: 100px;
-    min-height: 100px;
+    height: 100px;
     border: 3px solid black;
+    font-size: 2rem;
 }
 
 #players{
