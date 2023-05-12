@@ -37,6 +37,7 @@ const displayController = (() => {
     };
 
     gameCell.forEach(cell =>  cell.addEventListener('click', (e) => {
+        if (e.currentTarget.textContent !== '') return
         console.log(e.currentTarget.dataset.number);
         let index = e.currentTarget.dataset.number - 1;
         e.currentTarget.textContent = player.getMark();
