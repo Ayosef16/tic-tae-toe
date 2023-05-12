@@ -3,24 +3,34 @@ const gameCell = document.querySelectorAll('td');
 const gameBoard = () => {
 }
 
-let gameboard = ['10','x','x','x','x','x','x','o','x'];
+let gameboard = ['','','','','','','','',''];
 
 let player1 = {
     name: 'Ben',
-    mark: 'O'
+    mark: 'X'
 }
 
 let player2 = {
     name: 'Sophie',
-    mark: 'X'
+    mark: 'O'
 }
 
-function putMark() {
+let player = player1;
 
+function changePlayer() {
+    if (player === player1) {
+        player = player2;
+    }
+    else if (player === player2) {
+        player = player1;
+    }
 }
+
 
 gameCell.forEach(cell =>  cell.addEventListener('click', (e) => {
     console.log(e.currentTarget.dataset.number);
     let number = e.currentTarget.dataset.number - 1;
-    e.currentTarget.textContent = gameboard[number];
+    e.currentTarget.textContent = player.mark;
+    gameboard[number] = player.mark;
+    changePlayer();
 }));
