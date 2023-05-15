@@ -33,7 +33,7 @@ const displayController = (() => {
     const winner = document.querySelector('.winner');
     const playAgainButton = document.querySelector('.play-again');
 
-    let turn = 1;
+    let turn = 0;
     let player;
 
     const playerTurn = () => {
@@ -55,9 +55,12 @@ const displayController = (() => {
         for (let win of winCondition) {
             if (board[win[0]] !== '' && board[win[0]] === board[win[1]] && board[win[0]] === board[win[2]]) {
                 playAgainButton.style.visibility = 'visible';
-                winner.style.visibility = 'visible';
                 return declareWinner();
             }
+        }
+        if (turn == 9) {
+            playAgainButton.style.visibility = 'visible';
+            return "It's a Draw!";
         }
     }
 
@@ -71,7 +74,8 @@ const displayController = (() => {
         gameBoard.clearBoard();
         gameCell.forEach(cell => cell.textContent = '');
         playAgainButton.style.visibility = 'hidden';
-        winner.style.visibility = 'hidden';
+        winner.textContent = '';
+        turn = 0;
     }
 
     playAgainButton.addEventListener('click', resetGame);
@@ -79,15 +83,15 @@ const displayController = (() => {
     gameCell.forEach(cell =>  cell.addEventListener('click', (e) => {
         if (e.currentTarget.textContent !== '') return
         if (winner.textContent !== '') return
+        turn++;
         playerTurn();
         let index = e.currentTarget.dataset.number - 1;
         e.currentTarget.textContent = player.getMark();
         gameBoard.setIndex(index);
-        turn++;
         winner.textContent = checkWinner(gameBoard.showBoard());
     }));
 
-    return { getPlayer, gameCell }
+    return { getPlayer }
 })();
 
 
