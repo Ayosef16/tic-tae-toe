@@ -11,8 +11,16 @@
 <body>
     <div class="game">
         <div id="players">
-            <button class="player-x">X</button>
-            <button class="player-o">O</button>
+            <form id="form-x">
+                <label for="player-x-name"></label>
+                <input type="text" id="player-x-name" name="playerX" placeholder="Player X Name..." required>
+                <button type="submit" class="player-x">X</button>
+            </form>
+            <form id="form-o">
+                <label for="player-o-name"></label>
+                <input type="text" id="player-o-name" name="playerO" placeholder="Player O Name..." required>
+                <button type="submit" class="player-o">O</button>
+            </form>
         </div>
         <table class="game-board">
             <caption>Game-Board</caption>

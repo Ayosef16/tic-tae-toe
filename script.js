@@ -1,3 +1,17 @@
+//form variables
+const formX = document.querySelector('#form-x');
+const formO = document.querySelector('#form-o');
+
+//prevent default to the form
+formX.addEventListener('submit', (e) => {
+    e.preventDefault();
+    player1 = playerFactory(formX.playerX.value, 'X');
+})
+formO.addEventListener('submit', (e) => {
+    e.preventDefault();
+    player2 = playerFactory(formO.playerO.value, 'O');
+})
+
 //function factory to create players
 
 const playerFactory = (name, mark) => {
@@ -6,8 +20,8 @@ const playerFactory = (name, mark) => {
     return { getName, getMark };
 }
 
-let player1 = playerFactory('Ben', 'X');
-let player2 = playerFactory('Marta', 'O');
+let player1;
+let player2;
 
 
 //create the gameBoard module

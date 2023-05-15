@@ -54,6 +54,13 @@ td{
     gap: 20px;
 }
 
+#form-x, #form-o {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
 .player-x, .player-o, .play-again{
     padding: 10px 40px;
     border-radius: 2rem;
@@ -68,4 +75,21 @@ td{
 
 .hidden{
     visibility: hidden;
+}
+
+.player-x, .player-o{
+    max-width: 150px;
+}
+
+input[type="text"] {
+    outline: none;
+    border-radius: 2rem;
+    text-align: center;
+    font-weight: 900;
+    color: red;
+    font-size: 1.5rem;
+}
+
+input[type="text"]:focus{
+    background-color: aqua;
 }
